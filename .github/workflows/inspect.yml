@@ -1,0 +1,16 @@
+name: Inspect the runner
+on: push
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v7
+      - name: print runner details and repo files
+        run: |
+          uname -a
+          echo "Repository files:"
+          ls -la
+      - name: count repository files
+        run: |
+          find . -type f | wc -l
